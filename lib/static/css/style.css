@@ -65,7 +65,7 @@ h3 {
 
 .site-main {
   min-height: 400px;
-  padding: 1rem;
+  padding: 1em;
   background-color: white;
   /*border-radius: 5px 5px 5px 5px;*/
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.17);
@@ -160,11 +160,13 @@ footer {
   padding-right: 1em;
 }
 
+.ribbon {
+  background-color: #282c2f;
+}
 @media (min-width: 768px) {
   .ribbon {
     opacity: 0;
     visibility: hidden;
-    background-color: #282c2f;
     position: absolute;
     top: -350px;
     animation: drop forwards 0.8s 1s cubic-bezier(0.165, 0.84, 0.44, 1);

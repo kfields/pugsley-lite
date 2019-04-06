@@ -1,0 +1,27 @@
+<div class="postcard">
+<div class="postcard-header">
+<div class="postcard-title">
+<a href="{{ url_for('main.post', slug=post.slug) }}">
+    <h2 id="post{{ post.id }}">{{ post.title }}</h2>
+</a>
+</div>
+<div class="postcard-intro">
+        By
+        <a href="{{ url_for('main.user', username=post.author.username) }}">
+            {{ post.author.full_name }}
+        </a>
+        {{ post.timestamp|humanize }}
+    </div>
+</div>
+    <p>{{post.body|striptags|truncate(100)}}</p>    
+{% if post.language and post.language != g.locale %}
+<br><br>
+<span id="translation{{ post.id }}">
+    <a href="javascript:translate(
+                '#post{{ post.id }}',
+                '#translation{{ post.id }}',
+                '{{ post.language }}',
+                '{{ g.locale }}');">{{ _('Translate') }}</a>
+</span>
+{% endif %}
+</div>

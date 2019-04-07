@@ -12,6 +12,17 @@ def index():
         page, current_app.config['POSTS_PER_PAGE'], False)
     return render_template('index.html', posts=posts.items)
 
+@bp.route('/blog')
+def blog():
+    page = request.args.get('page', 1, type=int)
+    posts = Post.query.order_by(Post.timestamp.desc()).paginate(
+        page, current_app.config['POSTS_PER_PAGE'], False)
+    return render_template('blog.html', posts=posts.items)
+
+@bp.route('/calendar')
+def calendar():
+    return render_template('calendar.html')
+
 @bp.route('/about')
 def about():
     return render_template('about.html')

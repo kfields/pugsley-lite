@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block head %}
+{{ super() }}
+<link href="/static/dist/calendar.css" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block content %}
+<div id="calendar"></div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script src="/static/dist/calendar.js"></script>
+{% endblock %}

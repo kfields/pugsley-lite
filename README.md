@@ -1,4 +1,4 @@
-# Pugsley
+# Pugsley-Lite
 
 ### Installation
 
@@ -8,11 +8,11 @@
 
 2. Clone the repository:
 
-        git clone https://github.com/kfields/pugsley.git
+        git clone https://github.com/kfields/pugsley-lite.git
         
 3. Navigate to the new directory which contains the repository.
 
-        cd pugsley
+        cd pugsley-lite
 
 4. Create a Python 3 virtual environment called `env`:
 
@@ -31,7 +31,7 @@
 
 1. Activate the virtual environment, if not already active:
 
-        cd pugsley
+        cd pugsley-lite
         source env/bin/activate
         
 2. Launch the Flask application:

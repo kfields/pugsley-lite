@@ -1,5 +1,5 @@
-from lib import app, db
-from lib.models import User, Post
+from pugsley import app, db
+from pugsley.models import User, Post
 import arrow
 
 @app.template_filter('humanize')

@@ -1,9 +1,9 @@
 from flask import render_template, request, current_app
 from flask_login import current_user, login_required, login_user, logout_user
 from flask_babel import _
-from lib.models import User, Post
-from lib.main.forms import EditProfileForm, PostForm, SearchForm, MessageForm
-from lib.main import bp
+from pugsley.models import User, Post
+from pugsley.main.forms import EditProfileForm, PostForm, SearchForm, MessageForm
+from pugsley.main import bp
 
 @bp.route('/')
 def index():

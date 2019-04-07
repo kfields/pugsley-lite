@@ -2,12 +2,12 @@ from flask import render_template, redirect, url_for, flash, request
 from werkzeug.urls import url_parse
 from flask_login import login_user, logout_user, current_user
 from flask_babel import _
-from lib import db
-from lib.auth import bp
-from lib.auth.forms import LoginForm, RegistrationForm, \
+from pugsley import db
+from pugsley.auth import bp
+from pugsley.auth.forms import LoginForm, RegistrationForm, \
     ResetPasswordRequestForm, ResetPasswordForm
-from lib.models import User
-from lib.auth.email import send_password_reset_email
+from pugsley.models import User
+from pugsley.auth.email import send_password_reset_email
 
 
 @bp.route('/login', methods=['GET', 'POST'])

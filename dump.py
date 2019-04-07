@@ -1,5 +1,5 @@
-from lib import db
-from lib.models import User, Post
+from pugsley import db
+from pugsley.models import User, Post
 
 users = User.query.all()
 print(users)

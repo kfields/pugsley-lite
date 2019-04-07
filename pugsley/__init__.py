@@ -21,10 +21,10 @@ mail = Mail(app)
 babel = Babel(app)
 bootstrap = Bootstrap(app)
 
-from lib.auth import bp as auth_bp
+from pugsley.auth import bp as auth_bp
 app.register_blueprint(auth_bp, url_prefix='/auth')
 
-from lib.main import bp as main_bp
+from pugsley.main import bp as main_bp
 app.register_blueprint(main_bp)
 
-from lib import models
+from pugsley import models

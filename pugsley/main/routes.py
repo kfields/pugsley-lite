@@ -2,7 +2,7 @@ from flask import render_template, request, current_app
 from flask_login import current_user, login_required, login_user, logout_user
 from flask_babel import _
 from pugsley.models import User, Post
-from pugsley.main.forms import EditProfileForm, PostForm, SearchForm, MessageForm
+from pugsley.main.forms import EditProfileForm, PostForm, SearchForm, ContactForm
 from pugsley.main import bp
 
 @bp.route('/')
@@ -27,9 +27,10 @@ def calendar():
 def about():
     return render_template('about.html')
 
-@bp.route('/contact')
+@bp.route('/contact', methods=['GET', 'POST'])
 def contact():
-    return render_template('contact.html')
+    form = ContactForm()
+    return render_template('contact.html', title=_('Contact'), form=form)
 
 @bp.route('/user/<username>')
 def user(username):
@@ -50,8 +51,7 @@ def edit_profile():
     elif request.method == 'GET':
         form.username.data = current_user.username
         form.about_me.data = current_user.about_me
-    return render_template('edit_profile.html', title=_('Edit Profile'),
-                           form=form)
+    return render_template('edit_profile.html', title=_('Edit Profile'), form=form)
 
 @bp.route('/posts/<slug>')
 def post(slug):

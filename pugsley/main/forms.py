@@ -39,7 +39,10 @@ class SearchForm(FlaskForm):
         super(SearchForm, self).__init__(*args, **kwargs)
 
 
-class MessageForm(FlaskForm):
+class ContactForm(FlaskForm):
+    subject = StringField(_l('Subject'), validators=[DataRequired()])
+    name = StringField(_l('Name'), validators=[DataRequired()])
+    email = StringField(_l('Email'), validators=[DataRequired()])
     message = TextAreaField(_l('Message'), validators=[
         DataRequired(), Length(min=1, max=140)])
     submit = SubmitField(_l('Submit'))

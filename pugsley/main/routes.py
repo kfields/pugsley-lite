@@ -19,10 +19,6 @@ def blog():
         page, current_app.config['POSTS_PER_PAGE'], False)
     return render_template('blog.html', posts=posts.items)
 
-@bp.route('/calendar')
-def calendar():
-    return render_template('calendar.html')
-
 @bp.route('/about')
 def about():
     return render_template('about.html')

@@ -27,4 +27,7 @@ app.register_blueprint(auth_bp, url_prefix='/auth')
 from pugsley.main import bp as main_bp
 app.register_blueprint(main_bp)
 
+from pugsley.schedule import bp as schedule_bp
+app.register_blueprint(schedule_bp)
+
 from pugsley import models

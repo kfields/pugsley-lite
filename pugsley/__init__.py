@@ -30,4 +30,7 @@ app.register_blueprint(main_bp)
 from pugsley.schedule import bp as schedule_bp
 app.register_blueprint(schedule_bp)
 
+from pugsley.graphql import bp as graphql_bp
+app.register_blueprint(graphql_bp)
+
 from pugsley import models

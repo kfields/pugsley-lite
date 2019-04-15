@@ -22,7 +22,7 @@ def api_events():
         },
 
         # for specifying the end time of each instance
-        'duration': '02:00'
+        'duration': '03:00'
       },
       {
         "title": "Christmas",

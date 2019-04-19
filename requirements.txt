@@ -7,6 +7,7 @@ Bootstrap-Flask==1.0.10
 Click==7.0
 Flask==1.0.2
 Flask-Babel==0.12.2
+Flask-Cors==3.0.7
 Flask-GraphQL==2.0.0
 Flask-Login==0.4.1
 Flask-Mail==0.9.1

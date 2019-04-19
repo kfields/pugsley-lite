@@ -3,24 +3,19 @@
 {% block content %}
 
 <div class="postcard-header">
-    <!-- <div>
-    <a href="{{ url_for('main.user', username=post.author.username) }}">
-        <img src="{{ post.author.avatar(70) }}" />
-    </a>
-    </div> -->
     <div class="postcard-title">
-    <a href="{{ url_for('main.post', slug=post.slug) }}">
-        <h2 id="post{{ post.id }}">{{ post.title }}</h2>
-    </a>
+        <h1 id="post{{ post.id }}">{{ post.title }}</h1>
     </div>
 
     <div class="postcard-intro">
-            <a href="{{ url_for('main.user', username=post.author.username) }}">
-                {{ post.author.full_name }}
-            </a>
-            {{ post.timestamp|humanize }}
-        </div>
-    
+        By
+        <a href="{{ url_for('main.user', username=post.author.username) }}">
+            {{ post.author.full_name }}
+        </a>
+        &middot;
+        {{ post.timestamp|humanize }}
+    </div>
+
     {% if post.language and post.language != g.locale %}
     <br><br>
     <span id="translation{{ post.id }}">
@@ -31,8 +26,8 @@
                     '{{ g.locale }}');">{{ _('Translate') }}</a>
     </span>
     {% endif %}
-    </div>
+</div>
 
-    {{ post.body }}
+{{ post.body|safe }}
 
 {% endblock %}

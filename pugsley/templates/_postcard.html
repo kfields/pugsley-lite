@@ -10,6 +10,7 @@
         <a href="{{ url_for('main.user', username=post.author.username) }}">
             {{ post.author.full_name }}
         </a>
+        &middot;
         {{ post.timestamp|humanize }}
     </div>
 </div>

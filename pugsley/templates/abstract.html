@@ -8,13 +8,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   {% block styles %}
-  <!-- Bootstrap CSS -->
-  {{ bootstrap.load_css() }}
+  <link href="static/dist/main.css" rel="stylesheet" type="text/css">
+  <link href="static/css/style.css" rel="stylesheet" type="text/css">
   {% endblock %}
-
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-  <link href="/static/css/style.css" rel="stylesheet" type="text/css">
 
   <title>PUGSLEY-LITE</title>
   {% endblock %}
@@ -51,8 +47,7 @@
   </footer>
   #}
   {% block scripts %}
-  <!-- Optional JavaScript -->
-  {{ bootstrap.load_js() }}
+  <script src="static/dist/main.js"></script>
   {% endblock %}
 </body>
 

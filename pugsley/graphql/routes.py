@@ -10,7 +10,7 @@ templateFile = open(path)
 TEMPLATE = templateFile.read()
 
 bp.add_url_rule(
-    '/graphql',
+    '/graphql/',
     view_func=GraphQLView.as_view(
         'graphql',
         schema=schema.schema,

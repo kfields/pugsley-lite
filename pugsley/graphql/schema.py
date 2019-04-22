@@ -15,6 +15,25 @@ class UserConnection(relay.Connection):
     class Meta:
         node = UserNode
 
+class UpdateUser(graphene.Mutation):
+    class Arguments:
+        id = graphene.ID(required=True)
+        username = graphene.String()
+        email = graphene.String()
+
+    ok = graphene.Boolean()
+
+    def mutate(self, info, id, username, email):
+        print('mutate')
+        print(id)
+        user = graphene.Node.get_node_from_global_id(info, id)
+        print(user)
+        user.username = username
+        user.email = email
+        user.save()
+        ok = True
+
+        return ok
 
 class PostNode(SQLAlchemyObjectType):
     class Meta:
@@ -26,25 +45,6 @@ class PostConnection(relay.Connection):
     class Meta:
         node = PostNode
 
-class UpdatePostInput(graphene.InputObjectType):
-    id = graphene.ID(required=True)
-    title = graphene.String()
-    body = graphene.String()
-'''
-class UpdatePost(graphene.Mutation):
-    class Arguments:
-        post_data = UpdatePostInput(required=True)
-
-    post = graphene.Field(PostNode)
-
-    @staticmethod
-    def mutate(root, info, post_data=None):
-        post = Post.query.filter_by(id=post_data.id).first()
-        post.title = post_data.title
-        post.body = post_data.body
-        post.save()
-        return UpdatePost(post=post)
-'''
 class UpdatePost(graphene.Mutation):
     class Arguments:
         id = graphene.ID(required=True)
@@ -67,10 +67,12 @@ class UpdatePost(graphene.Mutation):
         return ok
 
 class MyMutations(graphene.ObjectType):
+    update_user = UpdateUser.Field()
     update_post = UpdatePost.Field()
 
 class Query(graphene.ObjectType):
     node = relay.Node.Field()
+    user = relay.Node.Field(UserNode)
     post = relay.Node.Field(PostNode)
     all_users = SQLAlchemyConnectionField(UserConnection)
     all_posts = SQLAlchemyConnectionField(PostConnection)

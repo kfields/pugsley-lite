@@ -62,7 +62,7 @@ module.exports = function (ctx) {
     supportIE: false,
 
     build: {
-      distDir: '../pugsley/mc/static',
+      distDir: '../pugsley/static/mc/',
       env: ctx.dev ? webenv('dev') : webenv('pro'),
       scopeHoisting: true,
       // vueRouterMode: 'history',

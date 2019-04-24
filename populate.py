@@ -12,6 +12,7 @@ db.session.commit()
 
 p = Post(
   title='Pugsley, a python user group webapp',
+  summary='Pugsley is a webapp written in Python'
   body='Pugsley is a webapp written in Python',
   author=u
 )
@@ -30,6 +31,7 @@ db.session.commit()
 
 p = Post(
   title='Python is cool!',
+  summary='I love writing programs in Python',
   body='I love writing programs in Python',
   author=u
 )

@@ -1,4 +1,8 @@
-from flask import render_template, redirect, url_for, flash, request
+from flask import render_template, redirect, url_for, flash, request, jsonify
+from flask_jwt_extended import (
+    JWTManager, jwt_required, create_access_token,
+    get_jwt_identity
+)
 from werkzeug.urls import url_parse
 from flask_login import login_user, logout_user, current_user
 from flask_babel import _
@@ -80,3 +84,23 @@ def reset_password(token):
         flash(_('Your password has been reset.'))
         return redirect(url_for('auth.login'))
     return render_template('auth/reset_password.html', form=form)
+
+@bp.route('/token', methods=['POST'])
+def token():
+    if not request.is_json:
+        return jsonify({"msg": "Missing JSON in request"}), 400
+
+    username = request.json.get('username', None)
+    password = request.json.get('password', None)
+    if not username:
+        return jsonify({"msg": "Missing username parameter"}), 400
+    if not password:
+        return jsonify({"msg": "Missing password parameter"}), 400
+
+    user = User.query.filter_by(username=username).first()
+    if user is None or not user.check_password(password):
+        return jsonify({"msg": "Bad username or password"}), 401
+
+    # Identity can be any data that is json serializable
+    access_token = create_access_token(identity=username)
+    return jsonify(token=access_token), 200

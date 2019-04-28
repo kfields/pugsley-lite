@@ -4,6 +4,7 @@ from graphene_sqlalchemy import SQLAlchemyObjectType, SQLAlchemyConnectionField
 from pugsley import db
 from pugsley.models import User, Post
 
+import flask_jwt_extended
 
 class UserNode(SQLAlchemyObjectType):
     class Meta:
@@ -56,7 +57,9 @@ class UpdatePost(graphene.Mutation):
 
     def mutate(self, info, id, title, summary, body):
         print('mutate')
-        print(id)
+        # get the JWT
+        token = info.context.headers.get('Authorization')
+        print(flask_jwt_extended.decode_token(token))
         # post = Post.query.get(id)
         post = graphene.Node.get_node_from_global_id(info, id)
         print(post)

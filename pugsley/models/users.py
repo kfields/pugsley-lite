@@ -1,8 +1,6 @@
-from datetime import datetime
 from hashlib import md5
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
-from slugify import slugify
 from pugsley import db, login
 
 @login.user_loader
@@ -16,6 +14,7 @@ class User(UserMixin, db.Model):
     last_name = db.Column(db.String(32))
     email = db.Column(db.String(120), index=True, unique=True)
     password_hash = db.Column(db.String(128))
+    role = db.Column(db.String(16))
     about_me = db.Column(db.String(140))
     posts = db.relationship('Post', backref='author', lazy='dynamic')
 
@@ -36,22 +35,3 @@ class User(UserMixin, db.Model):
         digest = md5(self.email.lower().encode('utf-8')).hexdigest()
         return 'https://www.gravatar.com/avatar/{}?d=identicon&s={}'.format(
             digest, size)
-
-class Post(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(255))
-    slug = db.Column(db.String(255))
-    summary = db.Column(db.Text)
-    cover = db.Column(db.String(255))
-    body = db.Column(db.Text)
-    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow())
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    # tags
-
-    def __init__(self, *args, **kwargs):
-        if not 'slug' in kwargs:
-            kwargs['slug'] = slugify(kwargs.get('title', ''))
-        super().__init__(*args, **kwargs)
-
-    def __repr__(self):
-        return '<Post {}>'.format(self.body)

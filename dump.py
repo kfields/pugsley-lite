@@ -1,5 +1,6 @@
 from pugsley import db
-from pugsley.models import User, Post
+from pugsley.models.users import User
+from pugsley.models.blog import Post
 
 users = User.query.all()
 print(users)

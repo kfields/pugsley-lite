@@ -1,5 +1,6 @@
 from pugsley import app, db
-from pugsley.models import User, Post
+from pugsley.models.users import User
+from pugsley.models.blog import Post
 import arrow
 
 @app.template_filter('humanize')

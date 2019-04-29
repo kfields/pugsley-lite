@@ -1,7 +1,6 @@
 from flask import render_template, request, current_app, jsonify
 from flask_login import current_user, login_required, login_user, logout_user
 from flask_babel import _
-from pugsley.models import User, Post
 from pugsley.schedule import bp
 
 @bp.route('/calendar')

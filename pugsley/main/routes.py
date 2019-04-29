@@ -1,7 +1,8 @@
 from flask import render_template, request, current_app
 from flask_login import current_user, login_required, login_user, logout_user
 from flask_babel import _
-from pugsley.models import User, Post
+from pugsley.models.users import User
+from pugsley.models.blog import Post
 from pugsley.main.forms import EditProfileForm, PostForm, SearchForm, ContactForm
 from pugsley.main import bp
 

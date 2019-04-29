@@ -3,7 +3,6 @@ from config import Config
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
-from flask_jwt_extended import JWTManager
 
 from flask_mail import Mail
 from flask_bootstrap import Bootstrap
@@ -22,9 +21,6 @@ login.login_message = 'Please log in to access this page.'
 mail = Mail(app)
 babel = Babel(app)
 bootstrap = Bootstrap(app)
-# Setup the Flask-JWT-Extended extension
-app.config['JWT_SECRET_KEY'] = 'super-secret'  # Change this!
-jwt = JWTManager(app)
 
 from pugsley.auth import bp as auth_bp
 app.register_blueprint(auth_bp, url_prefix='/auth')

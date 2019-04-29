@@ -2,8 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo
 from flask_babel import _, lazy_gettext as _l
-from pugsley.models import User
-
+from pugsley.models.users import User
 
 class LoginForm(FlaskForm):
     username = StringField(_l('Username'), validators=[DataRequired()])

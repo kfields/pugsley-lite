@@ -36,51 +36,10 @@ class UpdateUser(graphene.Mutation):
 
         return ok
 
-class PostNode(SQLAlchemyObjectType):
-    class Meta:
-        model = Post
-        interfaces = (relay.Node, )
-
-
-class PostConnection(relay.Connection):
-    class Meta:
-        node = PostNode
-
-class UpdatePost(graphene.Mutation):
-    class Arguments:
-        id = graphene.ID(required=True)
-        title = graphene.String()
-        summary = graphene.String()
-        body = graphene.String()
-
-    ok = graphene.Boolean()
-
-    def mutate(self, info, id, title, summary, body):
-        print('mutate')
-        # get the JWT
-        # token = info.context.headers.get('Authorization')
-        token = decode_auth_token(info.context)
-        print(token)
-        # post = Post.query.get(id)
-        post = graphene.Node.get_node_from_global_id(info, id)
-        print(post)
-        post.title = title
-        post.summary = summary
-        post.body = body
-        db.session.commit()
-        ok = True
-
-        return ok
-
 class MyMutations(graphene.ObjectType):
     update_user = UpdateUser.Field()
-    update_post = UpdatePost.Field()
 
 class Query(graphene.ObjectType):
-    node = relay.Node.Field()
+    # node = relay.Node.Field()
     user = relay.Node.Field(UserNode)
-    post = relay.Node.Field(PostNode)
     all_users = SQLAlchemyConnectionField(UserConnection)
-    all_posts = SQLAlchemyConnectionField(PostConnection)
-
-schema = graphene.Schema(query=Query, mutation=MyMutations)

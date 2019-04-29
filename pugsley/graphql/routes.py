@@ -1,5 +1,6 @@
 from flask import render_template, request, current_app
-from pugsley.graphql import schema
+# from pugsley.graphql import schema
+import pugsley.schemas as schemas
 from flask_graphql import GraphQLView
 from pugsley.graphql import bp
 import os
@@ -13,7 +14,7 @@ bp.add_url_rule(
     '/graphql/',
     view_func=GraphQLView.as_view(
         'graphql',
-        schema=schema.schema,
+        schema=schemas.schema,
         graphiql=True,
         graphiql_template=TEMPLATE
     )

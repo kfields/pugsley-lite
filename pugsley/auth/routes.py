@@ -1,16 +1,13 @@
 from flask import render_template, redirect, url_for, flash, request, jsonify
-from flask_jwt_extended import (
-    JWTManager, jwt_required, create_access_token,
-    get_jwt_identity
-)
 from werkzeug.urls import url_parse
 from flask_login import login_user, logout_user, current_user
 from flask_babel import _
 from pugsley import db
+from pugsley.jwt import encode_auth_token
 from pugsley.auth import bp
 from pugsley.auth.forms import LoginForm, RegistrationForm, \
     ResetPasswordRequestForm, ResetPasswordForm
-from pugsley.models import User
+from pugsley.models.users import User
 from pugsley.auth.email import send_password_reset_email
 
 
@@ -29,7 +26,7 @@ def login():
         if not next_page or url_parse(next_page).netloc != '':
             next_page = url_for('main.index')
         return redirect(next_page)
-    return render_template('auth/login.html', title=_('Log In'), form=form)
+    return render_template('login.html', title=_('Log In'), form=form)
 
 
 @bp.route('/logout')
@@ -50,7 +47,7 @@ def register():
         db.session.commit()
         flash(_('Congratulations, you are now a registered user!'))
         return redirect(url_for('auth.login'))
-    return render_template('auth/register.html', title=_('Register'),
+    return render_template('register.html', title=_('Register'),
                            form=form)
 
 
@@ -66,7 +63,7 @@ def reset_password_request():
         flash(
             _('Check your email for the instructions to reset your password'))
         return redirect(url_for('auth.login'))
-    return render_template('auth/reset_password_request.html',
+    return render_template('reset_password_request.html',
                            title=_('Reset Password'), form=form)
 
 
@@ -83,7 +80,7 @@ def reset_password(token):
         db.session.commit()
         flash(_('Your password has been reset.'))
         return redirect(url_for('auth.login'))
-    return render_template('auth/reset_password.html', form=form)
+    return render_template('reset_password.html', form=form)
 
 @bp.route('/token', methods=['POST'])
 def token():
@@ -102,5 +99,6 @@ def token():
         return jsonify({"msg": "Bad username or password"}), 401
 
     # Identity can be any data that is json serializable
-    access_token = create_access_token(identity=username)
-    return jsonify(token=access_token), 200
+    access_token = encode_auth_token(sub=username, id=user.id)
+    print(access_token)
+    return jsonify({"token": access_token.decode('utf-8')}), 200

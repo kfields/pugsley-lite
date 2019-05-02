@@ -4,7 +4,7 @@ from graphene_sqlalchemy import SQLAlchemyObjectType, SQLAlchemyConnectionField
 from pugsley import db
 from pugsley.models.users import User
 from pugsley.models.blog import Post
-from pugsley.jwt import decode_auth_token
+from pugsley.jwt import decode_auth_token, load_user
 
 class PostNode(SQLAlchemyObjectType):
     class Meta:
@@ -26,9 +26,7 @@ class UpdatePost(graphene.Mutation):
     ok = graphene.Boolean()
 
     def mutate(self, info, id, title, summary, body):
-        print('mutate')
         # get the JWT
-        # token = info.context.headers.get('Authorization')
         token = decode_auth_token(info.context)
         print(token)
         # post = Post.query.get(id)
@@ -42,8 +40,53 @@ class UpdatePost(graphene.Mutation):
 
         return ok
 
+class CreatePost(graphene.Mutation):
+    class Arguments:
+        title = graphene.String()
+        summary = graphene.String()
+        body = graphene.String()
+        owner_id = graphene.ID()
+
+    id = graphene.ID()
+
+    def mutate(self, info, title, summary, body):
+        # get the JWT
+        user = load_user(info)
+        user_id = user.id
+        print(user)
+        # post = Post.query.get(id)
+        post = Post(title=title, summary=summary, body=body, owner_id=user_id)
+        db.session.add(post)
+        db.session.commit()
+        # db.session.flush()
+        db.session.refresh(post)
+        print(post)
+        id = post.id
+
+        return CreatePost(id=id)
+
+class DeletePost(graphene.Mutation):
+    class Arguments:
+        id = graphene.ID(required=True)
+
+    ok = graphene.Boolean()
+
+    def mutate(self, info, id):
+        # get the JWT
+        token = decode_auth_token(info.context)
+        print(token)
+        post = graphene.Node.get_node_from_global_id(info, id)
+        print(post)
+        db.session.delete(post)
+        db.session.commit()
+        ok = True
+
+        return ok
+
 class MyMutations(graphene.ObjectType):
+    create_post = CreatePost.Field()
     update_post = UpdatePost.Field()
+    delete_post = DeletePost.Field()
 
 class Query(graphene.ObjectType):
     # node = relay.Node.Field()

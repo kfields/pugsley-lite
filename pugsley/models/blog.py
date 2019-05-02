@@ -10,7 +10,7 @@ class Post(db.Model):
     cover = db.Column(db.String(255))
     body = db.Column(db.Text)
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow())
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    owner_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     # tags
 
     def __init__(self, *args, **kwargs):

@@ -9,6 +9,7 @@
     "createsuper": "python manage.py createsuperuser",
     "makemigrations": "python manage.py makemigrations",
     "migrate": "python manage.py migrate",
+    "deploy": "git push dokku master",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

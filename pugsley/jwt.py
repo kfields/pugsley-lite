@@ -1,6 +1,7 @@
 import jwt
 import datetime
 from pugsley import app
+from pugsley.models.users import User
 
 def encode_auth_token(**kwargs):
     payload = {
@@ -16,6 +17,11 @@ def encode_auth_token(**kwargs):
         app.config.get('SECRET_KEY'),
         algorithm='HS256'
     )
+
+def load_user(info):
+    token = decode_auth_token(info.context)
+    print(token)
+    return User.query.get(token['id'])
 
 def decode_auth_token(request):
     auth_token = request.headers.get('Authorization')

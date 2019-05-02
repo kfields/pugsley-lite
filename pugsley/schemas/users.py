@@ -16,6 +16,30 @@ class UserConnection(relay.Connection):
     class Meta:
         node = UserNode
 
+class CreateUser(graphene.Mutation):
+    class Arguments:
+        username = graphene.String()
+        email = graphene.String()
+
+    id = graphene.ID()
+
+    def mutate(self, info, username, email):
+        print('CreateUser')
+        print(id)
+        user = User(
+            username='joe',
+            first_name='Joe',
+            last_name='Jackson',
+            email='joe@example.com',
+            role='Reader',
+            about_me='I am a Reader'
+        )
+        user.set_password(password)
+        db.session.add(u)
+        db.session.commit()
+
+        return user.id
+
 class UpdateUser(graphene.Mutation):
     class Arguments:
         id = graphene.ID(required=True)
@@ -25,7 +49,7 @@ class UpdateUser(graphene.Mutation):
     ok = graphene.Boolean()
 
     def mutate(self, info, id, username, email):
-        print('mutate')
+        print('UpdateUser')
         print(id)
         user = graphene.Node.get_node_from_global_id(info, id)
         print(user)

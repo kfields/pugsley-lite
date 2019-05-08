@@ -7,8 +7,8 @@
     "build": "webpack",
     "freeze": "pip freeze | grep -v 'pkg-resources' > requirements.txt",
     "createsuper": "python manage.py createsuperuser",
-    "makemigrations": "python manage.py makemigrations",
-    "migrate": "python manage.py migrate",
+    "makemigrations": "flask db migrate",
+    "migrate": "flask db upgrade",
     "deploy": "git push dokku master",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

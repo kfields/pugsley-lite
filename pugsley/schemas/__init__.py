@@ -1,11 +1,11 @@
 import graphene
 import pugsley.schemas.users
 import pugsley.schemas.blog
-import pugsley.schemas.gallery
+import pugsley.schemas.images
 
-class MyMutations(users.MyMutations, blog.MyMutations, gallery.MyMutations):
+class MyMutations(users.MyMutations, blog.MyMutations, images.MyMutations):
     pass
-class Query(users.Query, blog.Query, gallery.Query):
+class Query(users.Query, blog.Query, images.Query):
     pass
 
 schema = graphene.Schema(query=Query, mutation=MyMutations)

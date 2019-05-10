@@ -25,8 +25,8 @@ bootstrap = Bootstrap(app)
 from pugsley.auth import bp as auth_bp
 app.register_blueprint(auth_bp, url_prefix='/auth')
 
-from pugsley.filepond import bp as filepond_bp
-app.register_blueprint(filepond_bp, url_prefix='/filepond')
+from pugsley.images import bp as images_bp
+app.register_blueprint(images_bp, url_prefix='/images')
 
 from pugsley.main import bp as main_bp
 app.register_blueprint(main_bp)

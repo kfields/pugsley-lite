@@ -3,7 +3,7 @@ from graphene import relay
 from graphene_sqlalchemy import SQLAlchemyObjectType, SQLAlchemyConnectionField
 from pugsley import db
 from pugsley.models.users import User
-from pugsley.models.gallery import Image
+from pugsley.models.images import Image
 from pugsley.jwt import decode_auth_token, load_user
 
 class ImageNode(SQLAlchemyObjectType):

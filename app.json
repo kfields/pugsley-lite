@@ -1,7 +1,7 @@
 {
   "scripts": {
     "dokku": {
-      "predeploy": "python flask db upgrade"
+      "predeploy": "flask db upgrade"
     }
   }
 }

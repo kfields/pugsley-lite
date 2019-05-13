@@ -14,8 +14,7 @@ def encode_auth_token(**kwargs):
 
     return jwt.encode(
         payload,
-        app.config.get('SECRET_KEY'),
-        algorithm='HS256'
+        app.config.get('SECRET_KEY')
     )
 
 def load_user(info):
@@ -25,6 +24,10 @@ def load_user(info):
 
 def decode_auth_token(request):
     auth_token = request.headers.get('Authorization')
+    print('decode')
+    print(auth_token)
+    secret = app.config.get('SECRET_KEY')
+    print(secret)
     if not auth_token:
         auth_token = ''
     try:

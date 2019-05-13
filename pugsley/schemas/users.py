@@ -39,7 +39,8 @@ class Login(graphene.Mutation):
         # Identity can be any data that is json serializable
         access_token = encode_auth_token(sub=username, id=user.id)
         print(access_token)
-        token = json.dumps({"token": access_token.decode('utf-8')})
+        # token = json.dumps({"token": access_token.decode('utf-8')})
+        token = access_token.decode('utf-8')
         print(token)
         return Login(token=token)
 

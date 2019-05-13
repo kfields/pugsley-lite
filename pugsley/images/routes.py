@@ -53,7 +53,7 @@ def upload():
             raise Exception('No selected file')
         if file and allowed_file(filename):
             filename = secure_filename(filename)
-            file.save(os.path.join(app.config['MEDIA'], filename))
+            file.save(os.path.join(app.config['MEDIA_ROOT'], filename))
             img = Img(
                 title=filename,
                 filename=filename
@@ -64,14 +64,14 @@ def upload():
 
 @bp.route('/<path:filename>')
 def image(filename):
-    d = app.config['MEDIA']
+    root = app.config['MEDIA_ROOT']
     try:
         w = int(request.args['w'])
         h = int(request.args['h'])
     except (KeyError, ValueError):
-        return send_from_directory(d, filename)
+        return send_from_directory(root, filename)
     try:
-        im = Image.open(os.path.join(app.config['MEDIA'], filename))
+        im = Image.open(os.path.join(root, filename))
         im.thumbnail((w, h), Image.ANTIALIAS)
         io = BytesIO()
         im.save(io, format='PNG')
@@ -79,4 +79,4 @@ def image(filename):
     except IOError:
         abort(404)
 
-    return send_from_directory(d, filename)
+    return send_from_directory(root, filename)

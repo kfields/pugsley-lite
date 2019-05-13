@@ -6,7 +6,11 @@ load_dotenv(os.path.join(basedir, '.env'))
 
 
 class Config(object):
-    MEDIA = os.environ.get('MEDIA') or (basedir + '/media')
+    if os.environ.get("DOKKU_APP_TYPE"):
+        MEDIA_ROOT = '/storage/media'
+    else:
+        MEDIA_ROOT = basedir + '/media'
+
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'you-will-never-guess'
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
         'sqlite:///' + os.path.join(basedir, 'app.db')

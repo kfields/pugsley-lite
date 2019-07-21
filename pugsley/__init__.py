@@ -37,4 +37,7 @@ app.register_blueprint(schedule_bp)
 from pugsley.graphql import bp as graphql_bp
 app.register_blueprint(graphql_bp)
 
+from pugsley.dashboard import bp as dashboard_bp
+app.register_blueprint(dashboard_bp, url_prefix='/dashboard')
+
 from pugsley import models

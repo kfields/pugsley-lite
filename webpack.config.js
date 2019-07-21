@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const devMode = process.env.NODE_ENV !== 'production';
 
@@ -8,7 +9,9 @@ module.exports = {
   context: path.resolve(__dirname, 'src'),
   entry: {
     main: './main.js', 
-    calendar: './calendar.js'
+    calendar: './calendar.js',
+    dashboard: './dashboard.js',
+    chart: './chart.js'
   },
   output: {
     filename: '[name].js',
@@ -16,10 +19,15 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      // Options similar to the same options in webpackOptions.output
-      // both options are optional
       filename: "[name].css",
       chunkFilename: "[id].css"
+    }),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery'
+    }),
+    new webpack.ProvidePlugin({
+      Chart: 'chart.js'
     })
   ],
   module: {

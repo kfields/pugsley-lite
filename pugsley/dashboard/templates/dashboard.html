@@ -8,8 +8,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   {% block styles %}
-  <link href="/static/favicon.ico" rel="icon" type="image/x-icon" />
   <link href="/static/dist/main.css" rel="stylesheet" type="text/css">
+  <link href="/static/dist/dashboard.css" rel="stylesheet" type="text/css">
   <link href="/static/css/style.css" rel="stylesheet" type="text/css">
   {% endblock %}
 
@@ -19,6 +19,7 @@
 </head>
 
 <body>
+  {#
   {% include '_navbar.html' %}
 
   <div class="container wrapper" style="padding: 0px; height: 100%;">
@@ -29,7 +30,9 @@
 
       <div class="col-12 col-md-8">
         <main class="site-main paper">
+          #}
           {% block content %}{% endblock %}
+          {#}
         </main>
       </div>
 
@@ -43,8 +46,10 @@
       <p>Source code licensed under MIT. Website content licensed under CC ANS 4.0.</p>
     </div>
   </footer>
+  #}
   {% block scripts %}
   <script src="/static/dist/main.js"></script>
+  <script src="/static/dist/dashboard.js"></script>
   {% endblock %}
 </body>
 

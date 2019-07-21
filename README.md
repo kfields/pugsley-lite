@@ -1,8 +1,8 @@
 # Pugsley Lite
 
-### Installation
+## Installation
 
-1. Navigate to a directory somewhere where you keep your software projects:
+1. Navigate to a directory where you keep your software projects:
 
         cd projects
 
@@ -27,13 +27,13 @@
         pip install -r requirements.txt
 
 
-### Running the website
+## Development
 
 1. Activate the virtual environment, if not already active:
 
         cd pugsley-lite
         source env/bin/activate
         
-2. Launch the Flask application:
+2. Launch the Flask application in debug mode:
 
-        $ ./dev
+        ./dev

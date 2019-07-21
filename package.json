@@ -4,6 +4,8 @@
   "description": "## Installation",
   "main": "index.js",
   "scripts": {
+    "newenv": "python3 -m venv env",
+    "setup": "pip install -r requirements.txt",
     "build": "webpack",
     "freeze": "pip freeze | grep -v 'pkg-resources' > requirements.txt",
     "createsuper": "python manage.py createsuperuser",
@@ -43,8 +45,10 @@
     "webpack-cli": "^3.3.0"
   },
   "dependencies": {
+    "@creative-tim-official/argon-dashboard-free": "^1.0.0",
     "@fullcalendar/rrule": "^4.0.2",
     "bootstrap": "^4.3.1",
+    "chart.js": "^2.8.0",
     "jquery": "^3.3.1",
     "popper.js": "^1.14.7",
     "rrule": "^2.6.0"

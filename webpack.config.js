@@ -39,6 +39,18 @@ module.exports = {
             { loader: 'css-loader', options: { url: false, sourceMap: true } },
             { loader: 'sass-loader', options: { sourceMap: true } }
         ],
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: path.resolve(__dirname, 'pugsley/static/fonts/')
+            }
+          }
+        ]
       }
     ]
   }

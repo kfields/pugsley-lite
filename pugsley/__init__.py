@@ -40,4 +40,4 @@ app.register_blueprint(graphql_bp)
 from pugsley.dashboard import bp as dashboard_bp
 app.register_blueprint(dashboard_bp, url_prefix='/dashboard')
 
-from pugsley import models
+# from pugsley import models

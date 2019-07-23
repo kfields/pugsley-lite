@@ -17,16 +17,23 @@ def login():
         return redirect(url_for('main.index'))
     form = LoginForm()
     if form.validate_on_submit():
-        user = User.query.filter_by(username=form.username.data).first()
+        email = form.email.data
+        if '@' in email:
+            user = User.query.filter_by(email=form.email.data).first()
+        else:
+            user = User.query.filter_by(username=form.email.data).first()
         if user is None or not user.check_password(form.password.data):
-            flash(_('Invalid username or password'))
+            flash(_('Invalid email or password'))
             return redirect(url_for('auth.login'))
         login_user(user, remember=form.remember_me.data)
         next_page = request.args.get('next')
         if not next_page or url_parse(next_page).netloc != '':
             next_page = url_for('main.index')
         return redirect(next_page)
-    return render_template('login.html', title=_('Log In'), form=form)
+    # return render_template('login.html', title=_('Log In'), form=form)
+    return render_template('layouts/auth-default.html',
+        content=render_template( 'pages/login.html', form=form ) )
+
 
 
 @bp.route('/logout')
@@ -41,14 +48,16 @@ def register():
         return redirect(url_for('main.index'))
     form = RegistrationForm()
     if form.validate_on_submit():
-        user = User(first_name=form.first_name.data, last_name=form.last_name.data, username=form.username.data, email=form.email.data)
+        # user = User(first_name=form.first_name.data, last_name=form.last_name.data, username=form.username.data, email=form.email.data)
+        user = User(username=form.email.data, email=form.email.data)
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
         flash(_('Congratulations, you are now a registered user!'))
         return redirect(url_for('auth.login'))
-    return render_template('register.html', title=_('Register'),
-                           form=form)
+    # return render_template('register.html', title=_('Register'), form=form)
+    return render_template('layouts/auth-default.html',
+        content=render_template( 'pages/register.html', form=form ) )
 
 
 @bp.route('/reset_password_request', methods=['GET', 'POST'])

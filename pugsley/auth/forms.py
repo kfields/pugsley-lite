@@ -5,27 +5,17 @@ from flask_babel import _, lazy_gettext as _l
 from pugsley.models.users import User
 
 class LoginForm(FlaskForm):
-    username = StringField(_l('Username'), validators=[DataRequired()])
+    # email = StringField(_l('Email'), validators=[DataRequired(), Email()])
+    email = StringField(_l('Email'), validators=[DataRequired()])
     password = PasswordField(_l('Password'), validators=[DataRequired()])
-    remember_me = BooleanField(_l('Remember Me'))
+    remember_me = BooleanField(_l('Remember Me'), default='checked', validators=[DataRequired()])
     submit = SubmitField(_l('Log In'))
 
 
 class RegistrationForm(FlaskForm):
-    first_name = StringField(_l('First Name'), validators=[DataRequired()])
-    last_name = StringField(_l('Last Name'), validators=[DataRequired()])
-    username = StringField(_l('Username'), validators=[DataRequired()])
     email = StringField(_l('Email'), validators=[DataRequired(), Email()])
     password = PasswordField(_l('Password'), validators=[DataRequired()])
-    password2 = PasswordField(
-        _l('Repeat Password'), validators=[DataRequired(),
-                                           EqualTo('password')])
     submit = SubmitField(_l('Register'))
-
-    def validate_username(self, username):
-        user = User.query.filter_by(username=username.data).first()
-        if user is not None:
-            raise ValidationError(_('Please use a different username.'))
 
     def validate_email(self, email):
         user = User.query.filter_by(email=email.data).first()

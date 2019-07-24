@@ -12,6 +12,9 @@ body {
   flex-direction: column;
 }
 
+main {
+  overflow: visible !important;
+}
 /* .wrapper {
   flex: 1 0 auto;
 }*/

@@ -4,9 +4,10 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const devMode = process.env.NODE_ENV !== 'production';
 
 module.exports = {
+  watch: true,
   mode : devMode ? 'development' : 'production',
   // devtool: 'source-map',
-  context: path.resolve(__dirname, 'src'),
+  context: path.resolve(__dirname, 'assets/js'),
   entry: {
     main: './main.js', 
     calendar: './calendar.js',
@@ -14,12 +15,12 @@ module.exports = {
     chart: './chart.js'
   },
   output: {
-    filename: '[name].js',
-    path: path.resolve(__dirname, 'pugsley/static/dist')
+    filename: 'js/[name].js',
+    path: path.resolve(__dirname, 'pugsley/static')
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "[name].css",
+      filename: "css/[name].css",
       chunkFilename: "[id].css"
     }),
     new webpack.ProvidePlugin({
@@ -35,19 +36,25 @@ module.exports = {
       {
         test: /\.s?[ac]ss$/,
         use: [
-            MiniCssExtractPlugin.loader,
+            { 
+              loader: MiniCssExtractPlugin.loader,
+              options: {
+                outputPath: path.resolve(__dirname, 'pugsley/static/css'),
+                publicPath: path.resolve(__dirname, 'pugsley/static/css')
+              }
+            },
             { loader: 'css-loader', options: { url: false, sourceMap: true } },
             { loader: 'sass-loader', options: { sourceMap: true } }
         ],
       },
       {
-        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        test: /\.(png|gif|jpe|jpg|woff|woff2|eot|ttf|svg)(\?.*$|$)/,
         use: [
           {
-            loader: 'file-loader',
+            loader: 'url-loader',
             options: {
-              name: '[name].[ext]',
-              outputPath: path.resolve(__dirname, 'pugsley/static/fonts/')
+              outputPath: path.resolve(__dirname, 'pugsley/static/fonts'),
+              publicPath: path.resolve(__dirname, 'pugsley/static/fonts')
             }
           }
         ]

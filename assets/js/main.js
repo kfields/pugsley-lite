@@ -1,6 +1,8 @@
+import 'typeface-open-sans'
+
 import 'bootstrap';
 
-import './scss/app.scss';
+import '../scss/pugsley.scss';
 import { library, dom } from "@fortawesome/fontawesome-svg-core";
 /*
 import { faSearch, faUserCircle} from "@fortawesome/free-solid-svg-icons";

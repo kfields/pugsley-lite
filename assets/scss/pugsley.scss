@@ -1,3 +1,13 @@
+@import "~@creative-tim-official/argon-dashboard-free/assets/scss/custom/functions";
+@import "~@creative-tim-official/argon-dashboard-free/assets/scss/custom/variables";
+@import "~@creative-tim-official/argon-dashboard-free/assets/scss/custom/mixins";
+
+@import "~bootstrap/scss/bootstrap";
+
+@import "~@creative-tim-official/argon-dashboard-free/assets/scss/custom/buttons";
+@import "~@creative-tim-official/argon-dashboard-free/assets/scss/custom/card";
+@import "~@creative-tim-official/argon-dashboard-free/assets/scss/custom/tables";
+
 html,
 body {
   font-family: BlinkMacSystemFont,-apple-system,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
@@ -72,8 +82,10 @@ h6 { font-size: .75em; }
 .site-main {
   min-height: 400px;
   padding: 1em;
+  /*
   background-color: white;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.17);
+  */
 }
 .tagline {
   color: white;
@@ -170,12 +182,16 @@ footer {
 .ribbon {
   background-color: #282c2f;
 }
+.ribbon a {
+  display: inline-block;
+}
 @media (min-width: 768px) {
   .ribbon {
     opacity: 0;
     visibility: hidden;
     position: absolute;
     top: -350px;
+    width: 100%;
     animation: drop forwards 0.8s 1s cubic-bezier(0.165, 0.84, 0.44, 1);
   }
   .ribbon:before {
@@ -187,7 +203,9 @@ footer {
     border-right: 50px solid #282c2f;
     border-bottom: 50px solid transparent;
   }
-
+  .ribbon a {
+    display: block;
+  }  
   @keyframes drop {
     0% {
       top: -350px;

@@ -1,3 +1,4 @@
+import 'typeface-open-sans'
 // Theme CSS
 import '@creative-tim-official/argon-dashboard-free/assets/css/argon.min.css';
 // JS

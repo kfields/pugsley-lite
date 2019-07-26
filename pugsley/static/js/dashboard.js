@@ -1561,6 +1561,17 @@ eval("/* WEBPACK VAR INJECTION */(function(module) {var require;//! moment.js\n\
 
 /***/ }),
 
+/***/ "../../node_modules/typeface-open-sans/index.css":
+/*!*****************************************************************************!*\
+  !*** /home/kurt/Web/pugsley-lite/node_modules/typeface-open-sans/index.css ***!
+  \*****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:////home/kurt/Web/pugsley-lite/node_modules/typeface-open-sans/index.css?");
+
+/***/ }),
+
 /***/ "../../node_modules/webpack/buildin/module.js":
 /*!***********************************!*\
   !*** (webpack)/buildin/module.js ***!
@@ -1592,7 +1603,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var char
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _creative_tim_official_argon_dashboard_free_assets_css_argon_min_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @creative-tim-official/argon-dashboard-free/assets/css/argon.min.css */ \"../../node_modules/@creative-tim-official/argon-dashboard-free/assets/css/argon.min.css\");\n/* harmony import */ var _creative_tim_official_argon_dashboard_free_assets_css_argon_min_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_creative_tim_official_argon_dashboard_free_assets_css_argon_min_css__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./jquery */ \"./jquery.js\");\n/* harmony import */ var _chart__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./chart */ \"./chart.js\");\n/* harmony import */ var _creative_tim_official_argon_dashboard_free_assets_js_argon_min_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @creative-tim-official/argon-dashboard-free/assets/js/argon.min.js */ \"../../node_modules/@creative-tim-official/argon-dashboard-free/assets/js/argon.min.js\");\n/* harmony import */ var _creative_tim_official_argon_dashboard_free_assets_js_argon_min_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_creative_tim_official_argon_dashboard_free_assets_js_argon_min_js__WEBPACK_IMPORTED_MODULE_3__);\n// Theme CSS\n\n// JS\n\n\n// import './app'\n\n\n\n\n//# sourceURL=webpack:///./dashboard.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var typeface_open_sans__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! typeface-open-sans */ \"../../node_modules/typeface-open-sans/index.css\");\n/* harmony import */ var typeface_open_sans__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(typeface_open_sans__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _creative_tim_official_argon_dashboard_free_assets_css_argon_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @creative-tim-official/argon-dashboard-free/assets/css/argon.min.css */ \"../../node_modules/@creative-tim-official/argon-dashboard-free/assets/css/argon.min.css\");\n/* harmony import */ var _creative_tim_official_argon_dashboard_free_assets_css_argon_min_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_creative_tim_official_argon_dashboard_free_assets_css_argon_min_css__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _jquery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./jquery */ \"./jquery.js\");\n/* harmony import */ var _chart__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./chart */ \"./chart.js\");\n/* harmony import */ var _creative_tim_official_argon_dashboard_free_assets_js_argon_min_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @creative-tim-official/argon-dashboard-free/assets/js/argon.min.js */ \"../../node_modules/@creative-tim-official/argon-dashboard-free/assets/js/argon.min.js\");\n/* harmony import */ var _creative_tim_official_argon_dashboard_free_assets_js_argon_min_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_creative_tim_official_argon_dashboard_free_assets_js_argon_min_js__WEBPACK_IMPORTED_MODULE_4__);\n\n// Theme CSS\n\n// JS\n\n\n// import './app'\n\n\n\n\n//# sourceURL=webpack:///./dashboard.js?");
 
 /***/ }),
 

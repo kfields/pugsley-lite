@@ -40,6 +40,7 @@
     "moment": "^2.24.0",
     "node-sass": "^4.11.0",
     "postcss-loader": "^3.0.0",
+    "resolve-url-loader": "^3.1.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "typeface-open-sans": "^0.0.75",

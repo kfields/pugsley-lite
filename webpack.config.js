@@ -43,7 +43,10 @@ module.exports = {
                 publicPath: path.resolve(__dirname, 'pugsley/static/css')
               }
             },
-            { loader: 'css-loader', options: { url: false, sourceMap: true } },
+            { loader: 'css-loader', options: { sourceMap: true } },
+            {
+              loader: 'resolve-url-loader'
+            },
             { loader: 'sass-loader', options: { sourceMap: true } }
         ],
       },
@@ -53,8 +56,9 @@ module.exports = {
           {
             loader: 'url-loader',
             options: {
-              outputPath: path.resolve(__dirname, 'pugsley/static/fonts'),
-              publicPath: path.resolve(__dirname, 'pugsley/static/fonts')
+              limit: 64,
+              outputPath: 'fonts',
+              publicPath: '/static/fonts'
             }
           }
         ]

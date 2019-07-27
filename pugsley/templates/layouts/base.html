@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   {% block styles %}
+  <link href="/static/favicon.ico" rel="icon" type="image/x-icon" />
   <link href="/static/css/main.css" rel="stylesheet" type="text/css">
   {% endblock %}
 
@@ -17,25 +18,22 @@
 </head>
 
 <body>
-  {#
-  {% include '_navbar.html' %}
+  {% include 'includes/navbar.html' %}
 
   <div class="container wrapper" style="padding: 0px; height: 100%;">
     <div class="row no-gutters">
       <div class="col-12 col-md-1">
-        {% include '_leftbar.html' %}
+        {% include 'includes/leftbar.html' %}
       </div>
 
       <div class="col-12 col-md-8">
         <main class="site-main paper">
-          #}
           {% block content %}{% endblock %}
-          {#}
         </main>
       </div>
 
       <div class="col-12 col-md-3">
-        {% include '_rightbar.html' %}
+        {% include 'includes/rightbar.html' %}
       </div>
     </div>
   </div>
@@ -44,7 +42,6 @@
       <p>Source code licensed under MIT. Website content licensed under CC ANS 4.0.</p>
     </div>
   </footer>
-  #}
   {% block scripts %}
   <script src="/static/js/main.js"></script>
   {% endblock %}

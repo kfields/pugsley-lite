@@ -12,7 +12,7 @@ def index():
 def calendar():
     return render_template('calendar.html')
 
-@bp.route('/schedule/api/events')
+@bp.route('/api/events')
 def api_events():
     data = [
       {

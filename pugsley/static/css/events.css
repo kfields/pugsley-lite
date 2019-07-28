@@ -139,7 +139,11 @@
   .event-list > li > time,
   .event-list > li > img {
     width: 120px;
-    height: 120px;
+    height: 120px; }
+  .event-list > li > time {
+    padding: 5px;
+    margin: 0px; }
+  .event-list > li > img {
     padding: 0px;
     margin: 0px; }
   .event-list > li > .info {

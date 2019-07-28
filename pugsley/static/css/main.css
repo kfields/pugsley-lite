@@ -10880,8 +10880,7 @@ a.btn-icon-only {
 
 html,
 body {
-  font-family: BlinkMacSystemFont,-apple-system,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
-  height: 100%; }
+  font-family: BlinkMacSystemFont,-apple-system,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Helvetica,Arial,sans-serif; }
 
 body {
   /*font-size: calc(18px + .25vw);*/
@@ -10892,12 +10891,12 @@ body {
 main {
   overflow: visible !important; }
 
-/* .wrapper {
-  flex: 1 0 auto;
-}*/
+.wrapper {
+  flex: 1 0 auto; }
+
 .site-footer {
   margin-top: 1rem;
-  /* flex-shrink: 0; */ }
+  flex-shrink: 0; }
 
 body {
   /*font-size: calc(18px + .25vw);*/
@@ -10905,8 +10904,7 @@ body {
 
 a {
   text-decoration: none !important;
-  padding: 10px 0;
-  color: black; }
+  padding: 10px 0; }
 
 a:hover {
   /* color: #222222; */

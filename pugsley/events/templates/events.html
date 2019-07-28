@@ -1,4 +1,4 @@
-{% extends "layouts/base.html" %}
+{% extends "layouts/events.html" %}
 
 {% block head %}
 {{ super() }}
@@ -6,12 +6,15 @@
 {% endblock %}
 
 {% block content %}
-{% for event in events %}
-<ul class="event-list">
-    {% include "includes/event_card.html" %}
-</ul>
-{% endfor %}
+{{ super() }}
 
+<ul class="event-list">
+{% for event in events %}
+    {% include "includes/event_card.html" %}
+{% endfor %}
+</ul>
+
+<!--
   <ul class="event-list">
     <li>
       <time datetime="2014-07-20">
@@ -109,7 +112,7 @@
       </div>
     </li>
   </ul>
-
+-->
 {% endblock %}
 
 {% block scripts %}

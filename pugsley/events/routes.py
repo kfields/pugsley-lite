@@ -1,7 +1,12 @@
 from flask import render_template, request, current_app, jsonify
 from flask_login import current_user, login_required, login_user, logout_user
 from flask_babel import _
-from pugsley.schedule import bp
+from pugsley.events import bp
+from pugsley.events.utils import get_events
+
+@bp.route('/')
+def index():
+    return render_template('events.html', events=get_events())
 
 @bp.route('/calendar')
 def calendar():

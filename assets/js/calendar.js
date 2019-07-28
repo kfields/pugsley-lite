@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const calendarEl = document.getElementById('calendar');
 
   const calendar = new Calendar(calendarEl, {
-    events: '/schedule/api/events',
+    events: '/events/api/events',
     plugins: [ rrulePlugin, dayGridPlugin ],
     defaultView: 'dayGridMonth'
   });

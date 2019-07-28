@@ -8,7 +8,7 @@ from pugsley.auth import bp
 from pugsley.auth.forms import LoginForm, RegistrationForm, \
     ResetPasswordRequestForm, ResetPasswordForm
 from pugsley.models.users import User
-from pugsley.auth.email import send_password_reset_email
+from pugsley.auth.emails import send_password_reset_email
 
 
 @bp.route('/login', methods=['GET', 'POST'])

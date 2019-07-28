@@ -31,8 +31,8 @@ app.register_blueprint(images_bp, url_prefix='/images')
 from pugsley.main import bp as main_bp
 app.register_blueprint(main_bp)
 
-from pugsley.schedule import bp as schedule_bp
-app.register_blueprint(schedule_bp)
+from pugsley.events import bp as events_bp
+app.register_blueprint(events_bp, url_prefix='/events')
 
 from pugsley.graphql import bp as graphql_bp
 app.register_blueprint(graphql_bp)

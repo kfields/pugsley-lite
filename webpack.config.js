@@ -9,7 +9,8 @@ module.exports = {
   // devtool: 'source-map',
   context: path.resolve(__dirname, 'assets/js'),
   entry: {
-    main: './main.js', 
+    main: './main.js',
+    events: './events.js', 
     calendar: './calendar.js',
     dashboard: './dashboard.js',
     chart: './chart.js'

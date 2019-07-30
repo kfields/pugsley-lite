@@ -8,6 +8,8 @@
     "setup": "pip install -r requirements.txt",
     "build": "webpack",
     "freeze": "pip freeze | grep -v 'pkg-resources' > requirements.txt",
+    "pipcompile": "python -m piptools compile",
+    "pipupgrade": "python -m piptools compile --upgrade",
     "createsuper": "python manage.py createsuperuser",
     "makemigrations": "flask db migrate",
     "migrate": "flask db upgrade",

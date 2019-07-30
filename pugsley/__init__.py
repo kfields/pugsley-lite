@@ -5,7 +5,6 @@ from flask_migrate import Migrate
 from flask_login import LoginManager
 
 from flask_mail import Mail
-from flask_bootstrap import Bootstrap
 from flask_babel import Babel, lazy_gettext as _l
 
 app = Flask(__name__)
@@ -20,7 +19,6 @@ login.login_message = 'Please log in to access this page.'
 
 mail = Mail(app)
 babel = Babel(app)
-bootstrap = Bootstrap(app)
 
 from pugsley.auth import bp as auth_bp
 app.register_blueprint(auth_bp, url_prefix='/auth')

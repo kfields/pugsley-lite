@@ -1,23 +1,28 @@
 const path = require('path');
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const utils = require('./utils')
+
 const devMode = process.env.NODE_ENV !== 'production';
 
 module.exports = {
   watch: true,
   mode : devMode ? 'development' : 'production',
   // devtool: 'source-map',
-  context: path.resolve(__dirname, 'assets/js'),
+  context: utils.resolve('assets/js'),
   entry: {
     main: './main.js',
     events: './events.js', 
     calendar: './calendar.js',
     dashboard: './dashboard.js',
-    chart: './chart.js'
+    chart: './chart.js',
+    postedit: './postedit.js',
+    blocksley: './blocksley.js'
   },
   output: {
     filename: 'js/[name].js',
-    path: path.resolve(__dirname, 'pugsley/static')
+    path: utils.resolve('pugsley/static'),
+    publicPath: '/static/'
   },
   plugins: [
     new MiniCssExtractPlugin({
@@ -40,8 +45,8 @@ module.exports = {
             { 
               loader: MiniCssExtractPlugin.loader,
               options: {
-                outputPath: path.resolve(__dirname, 'pugsley/static/css'),
-                publicPath: path.resolve(__dirname, 'pugsley/static/css')
+                outputPath: utils.resolve('pugsley/static/css'),
+                publicPath: utils.resolve('pugsley/static/css')
               }
             },
             { loader: 'css-loader', options: { sourceMap: true } },

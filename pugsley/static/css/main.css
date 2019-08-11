@@ -10511,7 +10511,7 @@ a.btn-icon-only {
   color: #32325d;
   background-color: #f6f9fc;
   border-radius: 0.375rem;
-  border: 1px solid #dee2e6;
+  border: 0;
   text-align: left;
   font-family: inherit;
   display: inline-block;
@@ -10883,7 +10883,6 @@ body {
   font-family: BlinkMacSystemFont,-apple-system,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Helvetica,Arial,sans-serif; }
 
 body {
-  /*font-size: calc(18px + .25vw);*/
   background-color: #eeeeee;
   display: flex;
   flex-direction: column; }
@@ -10899,7 +10898,6 @@ main {
   flex-shrink: 0; }
 
 body {
-  /*font-size: calc(18px + .25vw);*/
   background-color: #eeeeee; }
 
 a {
@@ -10943,11 +10941,7 @@ h6 {
 
 .site-main {
   min-height: 400px;
-  padding: 1em;
-  /*
-  background-color: white;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.17);
-  */ }
+  padding: 1em; }
 
 .tagline {
   color: white;

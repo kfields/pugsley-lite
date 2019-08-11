@@ -1,12 +1,34 @@
-from flask import render_template, request, current_app
 import os
 import sys
+from flask import render_template, request, current_app
+from flask_login import current_user
 from pugsley.dashboard import bp
 from pugsley.dashboard.forms  import LoginForm, RegisterForm
+from pugsley.models.blog import Post
 
 @bp.route('/')
 def index():
     return render_template('layouts/default.html', content=render_template( 'pages/index.html') )
+
+# Render the tables page
+@bp.route('/posts.html')
+def posts():
+    page = request.args.get('page', 1, type=int)
+    posts = Post.query.filter_by(owner_id=current_user.id).order_by(Post.timestamp.desc()).paginate(
+        page, current_app.config['POSTS_PER_PAGE'], False)
+    return render_template('layouts/default.html',
+                            content=render_template( 'pages/posts.html', posts=posts.items) )
+
+@bp.route('/posts/<slug>')
+def post(slug):
+    post = Post.query.filter_by(slug=slug).first_or_404()
+    return render_template('pages/post-edit.html', post=post)
+
+# Render the tables page
+@bp.route('/tables.html')
+def tables():
+    return render_template('layouts/default.html',
+                            content=render_template( 'pages/tables.html') )
 
 # Render the icons page
 @bp.route('/icons.html')
@@ -19,13 +41,6 @@ def icons():
 def profile():
     return render_template('layouts/default.html',
                             content=render_template( 'pages/profile.html') )
-
-
-# Render the tables page
-@bp.route('/tables.html')
-def tables():
-    return render_template('layouts/default.html',
-                            content=render_template( 'pages/tables.html') )
 
 # authenticate user
 @bp.route('/logout.html')

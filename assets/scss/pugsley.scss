@@ -1,12 +1,12 @@
-@import "~@creative-tim-official/argon-dashboard-free/assets/scss/custom/functions";
-@import "~@creative-tim-official/argon-dashboard-free/assets/scss/custom/variables";
-@import "~@creative-tim-official/argon-dashboard-free/assets/scss/custom/mixins";
+@import "~@creative-tim-official/argon-dashboard-free/assets/scss/argon-dashboard/custom/functions";
+@import "~@creative-tim-official/argon-dashboard-free/assets/scss/argon-dashboard/custom/variables";
+@import "~@creative-tim-official/argon-dashboard-free/assets/scss/argon-dashboard/custom/mixins";
 
 @import "~bootstrap/scss/bootstrap";
 
-@import "~@creative-tim-official/argon-dashboard-free/assets/scss/custom/buttons";
-@import "~@creative-tim-official/argon-dashboard-free/assets/scss/custom/card";
-@import "~@creative-tim-official/argon-dashboard-free/assets/scss/custom/tables";
+@import "~@creative-tim-official/argon-dashboard-free/assets/scss/argon-dashboard/custom/buttons";
+@import "~@creative-tim-official/argon-dashboard-free/assets/scss/argon-dashboard/custom/card";
+@import "~@creative-tim-official/argon-dashboard-free/assets/scss/argon-dashboard/custom/tables";
 
 html,
 body {
@@ -78,10 +78,7 @@ h6 { font-size: .75em; }
 .site-main {
   min-height: 400px;
   padding: 1em;
-  /*
-  background-color: white;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.17);
-  */
+  // box-shadow: 0 0 25px rgba(0, 0, 0, 0.17);
 }
 .tagline {
   color: white;

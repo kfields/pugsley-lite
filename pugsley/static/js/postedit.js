@@ -81,31 +81,19 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./events.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./postedit.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "../scss/events.scss":
-/*!***************************!*\
-  !*** ../scss/events.scss ***!
-  \***************************/
+/***/ "./postedit.js":
+/*!*********************!*\
+  !*** ./postedit.js ***!
+  \*********************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///../scss/events.scss?");
-
-/***/ }),
-
-/***/ "./events.js":
-/*!*******************!*\
-  !*** ./events.js ***!
-  \*******************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scss_events_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/events.scss */ \"../scss/events.scss\");\n/* harmony import */ var _scss_events_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_scss_events_scss__WEBPACK_IMPORTED_MODULE_0__);\n\n\n//# sourceURL=webpack:///./events.js?");
+eval("/*\nconst element = document.getElementById('applet');\nconst shadowRoot = element.attachShadow({mode: 'open'});\nconst template = document.querySelector('#appletTemplate');\nshadowRoot.appendChild(template.content.cloneNode(true));\n*/\n/*\nshadowRoot.innerHTML = `\n<link href=\"/static/css/blocksley.css\" rel=\"stylesheet\" type=\"text/css\">\n<div id=\"q-app\"><slot></slot></div>\n<script src=\"/static/js/blocksley.js\"></script>\n`;\n*/\n(function() {\n  /*\n  const template = document.createElement('template');\n\n  template.innerHTML = `\n    <link href=\"/static/css/blocksley.css\" rel=\"stylesheet\" type=\"text/css\">\n    <script src=\"/static/js/blocksley.js\"></script>\n    <slot></slot>\n  `;\n  */\n  const template = document.querySelector('#appletTemplate');\n  class QuasarApp extends HTMLElement {\n    constructor() {\n      super();\n\n      this.attachShadow({ mode: 'open' });\n      this.shadowRoot.appendChild(template.content.cloneNode(true));\n    }\n  }\n\n  window.customElements.define('quasar-app', QuasarApp);\n})();\n\n//# sourceURL=webpack:///./postedit.js?");
 
 /***/ })
 

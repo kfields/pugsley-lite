@@ -1,3 +1,10 @@
+{% extends "layouts/dashboard/default.html" %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+{{ super() }}
   <!-- Main content -->
   <div class="main-content">
 
@@ -306,4 +313,8 @@
 
     </div>
   </div>
+  {% endblock %}
 
+  {% block scripts %}
+  {{ super() }}
+  {% endblock %}

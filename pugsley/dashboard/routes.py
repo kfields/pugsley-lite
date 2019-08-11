@@ -8,7 +8,7 @@ from pugsley.models.blog import Post
 
 @bp.route('/')
 def index():
-    return render_template('layouts/default.html', content=render_template( 'pages/index.html') )
+    return render_template('pages/index.html')
 
 # Render the tables page
 @bp.route('/posts.html')
@@ -16,8 +16,7 @@ def posts():
     page = request.args.get('page', 1, type=int)
     posts = Post.query.filter_by(owner_id=current_user.id).order_by(Post.timestamp.desc()).paginate(
         page, current_app.config['POSTS_PER_PAGE'], False)
-    return render_template('layouts/default.html',
-                            content=render_template( 'pages/posts.html', posts=posts.items) )
+    return render_template('pages/posts.html', posts=posts.items)
 
 @bp.route('/posts/<slug>')
 def post(slug):
@@ -27,20 +26,17 @@ def post(slug):
 # Render the tables page
 @bp.route('/tables.html')
 def tables():
-    return render_template('layouts/default.html',
-                            content=render_template( 'pages/tables.html') )
+    return render_template('pages/tables.html')
 
 # Render the icons page
 @bp.route('/icons.html')
 def icons():
-    return render_template('layouts/default.html',
-                            content=render_template( 'pages/icons.html') )
+    return render_template('pages/icons.html')
 
 # Render the profile page
 @bp.route('/profile.html')
 def profile():
-    return render_template('layouts/default.html',
-                            content=render_template( 'pages/profile.html') )
+    return render_template('pages/profile.html')
 
 # authenticate user
 @bp.route('/logout.html')

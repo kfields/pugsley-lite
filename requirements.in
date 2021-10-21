@@ -1,7 +1,7 @@
 alembic==1.0.8
 aniso8601==3.0.2
 arrow==0.13.1
-Babel==2.6.0
+Babel==2.9.1
 beautifulsoup4==4.7.1
 blinker==1.4
 Bootstrap-Flask==1.0.10

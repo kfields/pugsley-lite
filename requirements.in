@@ -31,7 +31,7 @@ MarkupSafe==1.1.1
 Pillow==6.0.0
 promise==2.2.1
 psycopg2-binary==2.8.2
-PyJWT==1.7.1
+PyJWT==2.4.0
 python-dateutil==2.8.0
 python-dotenv==0.10.1
 python-editor==1.0.4

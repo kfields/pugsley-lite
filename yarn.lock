@@ -670,10 +670,10 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@blocksley/applet@^0.1.15-alpha.0":
-  version "0.1.15-alpha.0"
-  resolved "https://registry.yarnpkg.com/@blocksley/applet/-/applet-0.1.15-alpha.0.tgz#e80f81e7da32e092451d3242db7b92a472ed0423"
-  integrity sha512-aW3vaY4LptMTwLmvgC78m/kTTACr4zDiTimGm7zCcv2SnYLGYy4scWS9BmyFJJTxzXrgufHkQmijtH3KF9MS8Q==
+"@blocksley/applet@^0.1.16-alpha.0":
+  version "0.1.16-alpha.0"
+  resolved "https://registry.yarnpkg.com/@blocksley/applet/-/applet-0.1.16-alpha.0.tgz#90c4b4dc07290004b8c70b263931025bba103036"
+  integrity sha512-Iy7FWSOWoVaaRpAhoC5MwKgBiyV2spDQlDcZ92fOjH6X5IuTLUMtI7VuDuHt2EQljRV+varAqHq6iDmSv32UrA==
   dependencies:
     "@blocksley/quasar-app-extension-blocksley" "^0.1.11-alpha.0"
     "@quasar/extras" "^1.0.0"
@@ -2012,9 +2012,9 @@ decamelize@^1.1.1, decamelize@^1.1.2, decamelize@^1.2.0:
   integrity sha1-9lNNFRSCabIDUue+4m9QH5oZEpA=
 
 decode-uri-component@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/decode-uri-component/-/decode-uri-component-0.2.0.tgz#eb3913333458775cb84cd1a1fae062106bb87545"
-  integrity sha1-6zkTMzRYd1y4TNGh+uBiEGu4dUU=
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/decode-uri-component/-/decode-uri-component-0.2.2.tgz#e69dbe25d37941171dd540e024c444cd5188e1e9"
+  integrity sha512-FqUYQ+8o158GyGTrMFJms9qh3CqTKvAqgqsTnkLI8sKu0028orqBhxNMFkFen0zGyg6epACD32pjVk58ngIErQ==
 
 deep-extend@^0.6.0:
   version "0.6.0"

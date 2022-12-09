@@ -670,10 +670,10 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@blocksley/applet@^0.1.15-alpha.0":
-  version "0.1.15-alpha.0"
-  resolved "https://registry.yarnpkg.com/@blocksley/applet/-/applet-0.1.15-alpha.0.tgz#e80f81e7da32e092451d3242db7b92a472ed0423"
-  integrity sha512-aW3vaY4LptMTwLmvgC78m/kTTACr4zDiTimGm7zCcv2SnYLGYy4scWS9BmyFJJTxzXrgufHkQmijtH3KF9MS8Q==
+"@blocksley/applet@^0.1.16-alpha.0":
+  version "0.1.16-alpha.0"
+  resolved "https://registry.yarnpkg.com/@blocksley/applet/-/applet-0.1.16-alpha.0.tgz#90c4b4dc07290004b8c70b263931025bba103036"
+  integrity sha512-Iy7FWSOWoVaaRpAhoC5MwKgBiyV2spDQlDcZ92fOjH6X5IuTLUMtI7VuDuHt2EQljRV+varAqHq6iDmSv32UrA==
   dependencies:
     "@blocksley/quasar-app-extension-blocksley" "^0.1.11-alpha.0"
     "@quasar/extras" "^1.0.0"
@@ -4503,9 +4503,9 @@ punycode@^2.1.0:
   integrity sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==
 
 qs@~6.5.2:
-  version "6.5.2"
-  resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
-  integrity sha512-N5ZAX4/LxJmF+7wN74pUD6qAh9/wnvdQcjq9TZjevvXzSUo7bfmw91saqMjzGS2xq91/odN2dW/WOl7qQHNDGA==
+  version "6.5.3"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.3.tgz#3aeeffc91967ef6e35c0e488ef46fb296ab76aad"
+  integrity sha512-qxXIEh4pCGfHICj1mAJQ2/2XVZkjCDTcEgfoSQxc/fYivUZxTkk7L3bDBJSoNrEzXI17oUO5Dp07ktqE5KzczA==
 
 quasar@^1.0.0-beta.0, quasar@^1.0.5:
   version "1.0.5"
